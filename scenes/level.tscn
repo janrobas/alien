@@ -1,11 +1,24 @@
 [gd_scene format=3 uid="uid://bbpc2gtwh73vp"]
 
 [ext_resource type="PackedScene" uid="uid://jr3nvwe8l0ej" path="res://objects/player.tscn" id="1_2q6dc"]
+[ext_resource type="Script" uid="uid://m6sthb8uay4b" path="res://scripts/level.gd" id="1_w8frs"]
 [ext_resource type="PackedScene" uid="uid://cpdu3b8634po8" path="res://objects/alien.tscn" id="2_w7c3h"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_snl34"]
+size = Vector2(1171, 668)
+
 [node name="Level" type="Node2D" unique_id=417128767]
+script = ExtResource("1_w8frs")
 
 [node name="Player" parent="." unique_id=102363032 instance=ExtResource("1_2q6dc")]
 
 [node name="Alien" parent="." unique_id=779910074 instance=ExtResource("2_w7c3h")]
 position = Vector2(317, 183)
+
+[node name="LevelArea" type="Area2D" parent="." unique_id=1130171288]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelArea" unique_id=1109514621]
+position = Vector2(575.5, 324)
+shape = SubResource("RectangleShape2D_snl34")
+
+[connection signal="body_exited" from="LevelArea" to="." method="_on_level_area_body_exited"]
