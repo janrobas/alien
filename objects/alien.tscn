@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cpdu3b8634po8"]
+
+[ext_resource type="Texture2D" uid="uid://c8ail4kn7xow" path="res://sprites/alien.png" id="1_mtvea"]
+[ext_resource type="Script" uid="uid://dshuxo4jwk74y" path="res://scripts/alien.gd" id="1_pfy4c"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_snl34"]
+radius = 73.0
+height = 174.0
+
+[node name="Alien" type="CharacterBody2D" unique_id=779910074]
+script = ExtResource("1_pfy4c")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=792894488]
+scale = Vector2(4.9375, 5.1875)
+texture = ExtResource("1_mtvea")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=993436860]
+shape = SubResource("CapsuleShape2D_snl34")
