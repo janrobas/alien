@@ -21,4 +21,25 @@ position = Vector2(317, 183)
 position = Vector2(575.5, 324)
 shape = SubResource("RectangleShape2D_snl34")
 
+[node name="Control" type="Control" parent="." unique_id=1287634033]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScoreLabel" type="Label" parent="Control" unique_id=1758892389]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 39
+text = "Score: 0"
+
+[node name="ScoreTime" type="Timer" parent="." unique_id=1346916239]
+wait_time = 0.5
+autostart = true
+
+[connection signal="ready" from="." to="." method="_on_ready"]
 [connection signal="body_exited" from="LevelArea" to="." method="_on_level_area_body_exited"]
+[connection signal="timeout" from="ScoreTime" to="." method="_on_score_time_timeout"]
